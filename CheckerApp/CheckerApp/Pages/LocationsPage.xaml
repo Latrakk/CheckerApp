@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckerApp.LocationsPage">
+    <ContentPage.Content>
+        <RefreshView x:Name="RefreshView" RefreshColor="Red" Refreshing="RefreshView_Refreshing">
+            <ScrollView>
+                <StackLayout>
+                    <Button x:Name="SendButton" Text="Отправить" Clicked="Button_Clicked"/>
+                    <Label x:Name="SuccessText" Text="Успешно отправлено" TextColor="Green"/>
+                    <ListView x:Name="LocationsListView" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame>
+                                        <Grid Margin="10,25,20,20" ColumnSpacing="2">
+                                            <Grid ColumnDefinitions="2"/>
+                                            <Grid ColumnDefinitions="2"/>
+                                            <Grid RowDefinitions="5"/>
+                                            <Grid RowDefinitions="5"/>
+                                            <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" TextColor="Chocolate" FontSize="Large"/>
+                                            <Entry x:Name="CommentEntry" Placeholder="Комментарий" Grid.Row="1" Grid.Column="0" Text="{Binding Comment}"/>
+                                            <CheckBox x:Name="CompleteCheckBox" Grid.Row="0" Grid.Column="2"/>
+                                            <Label x:Name="CompleteByLabel" Text="{Binding CompleteBy}" Grid.Row="1" Grid.Column="2" TextColor="Green"/>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+        
+    </ContentPage.Content>
+</ContentPage>
